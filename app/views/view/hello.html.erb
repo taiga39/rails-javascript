@@ -1,39 +1,34 @@
 <body>
   <h2>BMI</h2>
     <form>
-        <label for="textForm1">数値1: </label>
-        <input type="text" id="textForm1">
-
-        <label for="textForm2">数値2: </label>
-        <input type="text" id="textForm2">
-
-        <button id="button">足す</button>
+        <label for="textForm1">身長(cm): </label>
+        <input type="number" id="textForm1">
+        <br>
+        <label for="textForm2">体重(kg): </label>
+        <input type="number" id="textForm2">
+        <br>
+        <button id="button">計算</button>
     </form>
 
-    <label for="resultForm">計算結果: </label>
-    <input type="text" id="resultForm">
+    <label for="resultForm">BMI: </label>
+    <input type="number" id="resultForm">
 </body>
 
 <script>
 
-// ボタンの要素を取得
 var button = document.getElementById("button");
 
-// ボタンをクリックした時の処理
 button.addEventListener("click", function(e) {
 
     e.preventDefault();
 
-    // 2つの入力フォームの値を取得
-    var textForm1 = document.getElementById("textForm1").value;
-    var textForm2 = document.getElementById("textForm2").value;
+    var textForm1 = Number(document.getElementById("textForm1").value);
+    var textForm2 = Number(document.getElementById("textForm2").value);
 
-    // 2つの数値を足す
-    var sum = textForm1 + textForm2;
+    var bmi = Math.round((textForm2/((textForm1/100)*(textForm1/100)))*10)/10;
 
-    // 足し算の結果を別の入力フォームに表示
     var resultForm = document.getElementById("resultForm");
-    resultForm.value = sum;
+    resultForm.value = bmi;
 });
 
 </script>
