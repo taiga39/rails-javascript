@@ -1,0 +1,38 @@
+<body>
+    <button id="alert">表示</button>
+    <button id="delete">削除</button>
+    <div id="stock"> </div>
+</body>
+<script>
+var stockColors = ['黒','金','銀','緑'];
+
+
+var alert = document.getElementById("alert");
+
+alert.addEventListener("mouseup", function() {
+
+
+var stockList = '';
+for (var i=0; i<stockColors.length;i++){
+  stockList += '<li>'+ stockColors[i] + '色は、在庫があります。</li>';
+}
+
+document.getElementById('stock').innerHTML = stockList;
+
+});
+
+var delett = document.getElementById("delete");
+
+delett.addEventListener("click", function() {
+
+
+stockColors.splice(0,1)
+var stockList = '';
+for (var i=0; i<stockColors.length;i++){
+  stockList += '<li>'+ stockColors[i] + '色は、在庫があります。</li>';
+  }
+document.getElementById('stock').innerHTML = stockList;
+});
+
+
+</script>
